@@ -1,4 +1,4 @@
-package ecdsa
+package ed25519
 
 import (
 	"crypto/rand"

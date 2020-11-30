@@ -90,3 +90,33 @@ func TestSign(t *testing.T) {
 	fmt.Println("Sr25519Sig: ", hex.EncodeToString(sig2))
 	fmt.Println(len(sig2))
 }
+
+func Test_DecodeAddress(t *testing.T) {
+	address := "12h1EPMr8dt34jLGPzEXsagptARn9xzwruXaCAaXqKQ3GqKc"
+	pub, err := ss58.DecodeToPub(address)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	fmt.Println(pub)
+	fmt.Println(hex.EncodeToString(pub))
+}
+
+func Test_EncodeAddress(t *testing.T) {
+	pub := "ff188d85f3a34eb6830e0a52299c0451d5a0b615d70967a2db8dee107877fe2d"
+	data, _ := hex.DecodeString(pub)
+	fmt.Println(len(data))
+	address, err := ss58.Encode(data, ss58.PolkadotPrefix)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	fmt.Println(address)
+}
+
+func Test_ValidAddress(t *testing.T) {
+	err := ss58.VerityAddress("GRrZ2nUrLmzRoEWrYBUVN98TVfTKCdCKHNrCKEQnhXbKX1N", ss58.KsmPrefix)
+	if err != nil {
+		panic(err)
+	}
+}
