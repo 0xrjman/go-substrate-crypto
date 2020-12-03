@@ -2,6 +2,7 @@ package crypto
 
 import (
 	"fmt"
+	"github.com/JFJun/go-substrate-crypto/crypto/ecdsa"
 	"github.com/JFJun/go-substrate-crypto/crypto/ed25519"
 	"github.com/JFJun/go-substrate-crypto/crypto/sr25519"
 	"github.com/JFJun/go-substrate-crypto/ss58"
@@ -27,7 +28,7 @@ func GenerateSubstrateKey(curveType int) ([]byte, []byte, error) {
 	case 1:
 		return sr25519.GenerateKey()
 	case 2:
-		return nil, nil, fmt.Errorf("unsupport ecdsa curve type %d to create key", curveType)
+		return ecdsa.GenerateKey()
 	default:
 		return nil, nil, fmt.Errorf("unsupport curve type %d to create key", curveType)
 	}
@@ -47,7 +48,7 @@ func GenerateSubstrateKeyBySeed(priv []byte, curveType int) ([]byte, error) {
 	case 1:
 		return sr25519.GenerateKeyBySeed(priv)
 	case 2:
-		return nil, fmt.Errorf("unsupport ecdsa curve type %d to create key", curveType)
+		return ecdsa.GenerateKeyBySeed(priv)
 	default:
 		return nil, fmt.Errorf("unsupport curve type %d to create key", curveType)
 	}
@@ -75,7 +76,7 @@ func Sign(privateKey, message []byte, curveType int) ([]byte, error) {
 	case 1:
 		return sr25519.Sign(privateKey, message)
 	case 2:
-		return nil, fmt.Errorf("unsupport ecdsa curve type %d to sign", curveType)
+		return ecdsa.Sign(privateKey, message)
 	default:
 		return nil, fmt.Errorf("unsupport curve type %d to sign", curveType)
 	}
