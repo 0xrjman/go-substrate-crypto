@@ -2,10 +2,10 @@ package crypto
 
 import (
 	"fmt"
-	"github.com/JFJun/go-substrate-crypto/crypto/ecdsa"
-	"github.com/JFJun/go-substrate-crypto/crypto/ed25519"
-	"github.com/JFJun/go-substrate-crypto/crypto/sr25519"
-	"github.com/JFJun/go-substrate-crypto/ss58"
+	"github.com/rjman-ljm/go-substrate-crypto/crypto/ecdsa"
+	"github.com/rjman-ljm/go-substrate-crypto/crypto/ed25519"
+	"github.com/rjman-ljm/go-substrate-crypto/crypto/sr25519"
+	"github.com/rjman-ljm/go-substrate-crypto/ss58"
 )
 
 const (

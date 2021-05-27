@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 	sr25519 "github.com/ChainSafe/go-schnorrkel"
-	"github.com/JFJun/go-substrate-crypto/ss58"
+	"github.com/rjman-ljm/go-substrate-crypto/ss58"
 	r255 "github.com/gtank/ristretto255"
 )
 
